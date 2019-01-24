@@ -13,8 +13,16 @@
 <html>
 <head>
     <title>Title</title>
+
+    <!--  在src/main/resource目录下创建文件夹 webjars -->
+    <script src="webjars/jquery/3.1.1/jquery.min.js"></script>
+    <script src="webjars/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="webjars/bootstrap/4.0.0/css/bootstrap.min.css" />
+
 </head>
 <body>
+    <jsp:include page="base/base_header.jsp" flush="true" ></jsp:include>
     Welcome   <a href="login/toLogin">Login</a>
     <br>
     <br/>

@@ -127,7 +127,7 @@
             <input type="password" class="form-control" id="password" name="password" placeholder="Password" required autofocus />
         </div>
         <div class="row">
-            <button id="loginbtn" onclick="login();">登 陆</button>
+            <button type="button" class="btn btn-primary" id="loginbtn" onclick="login();">登 陆</button>
         </div>
         <div class="row lastrow">
             还没账号?
