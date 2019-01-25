@@ -10,4 +10,11 @@ public class HelloWorldController {
     public String index() {
         return "index";
     }
+
+    @RequestMapping("/vedio")
+    public String vedio() {
+        return "vedio_play";
+    }
+
+
 }

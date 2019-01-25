@@ -9,9 +9,9 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<nav class="navbar navbar-expand-sm bg-white navbar-dark">
+<nav class="navbar navbar-expand-sm bg-white navbar-light">
     <!-- Brand -->
-    <a class="navbar-brand" href="#">Logo</a>
+    <%--<a class="navbar-brand" href="#">Logo</a>--%>
     <a class="navbar-brand" href="#">
         <img src="${pageContext.request.contextPath}/images/logo.png" alt="Logo" >
     </a>
@@ -36,5 +36,19 @@
             </div>
         </li>
     </ul>
+    <!-- 这个 div 加上 justify-content-end 样式即可 -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/login') }}">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">/</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/register') }}">Register</a>
+            </li>
+        </ul>
+    </div>
 </nav>
 

@@ -23,9 +23,12 @@
 </head>
 <body>
     <jsp:include page="base/base_header.jsp" flush="true" ></jsp:include>
-    Welcome   <a href="login/toLogin">Login</a>
-    <br>
-    <br/>
-    <img src="${pageContext.request.contextPath}/images/heihei.png"/>
+    <div class="bg-secondary">
+        <a href="login/toLogin">Login</a> | <a href="vedio">Vedio</a>
+        Welcome
+        <br>
+        <br/>
+        <img src="images/heihei.png"/>
+    </div>
 </body>
 </html>

@@ -24,53 +24,6 @@
         body {
             background-color: #EEEEE0;
         }
-        .container {
-            text-align: center;
-            height: 350px;
-            margin-top: 10%;
-        }
-
-        .row {
-            margin-bottom: 30px;
-            height: 40px;
-        }
-
-        .row input {
-            width: 320px;
-            height: 40px;
-            padding: 0 15px;
-            border-radius: 5px;
-            border: 1px solid #acacac;
-        }
-
-        .row button {
-            width: 352px;
-            height: 42px;
-            background-color: #409eff;
-            color: white;
-            border-radius: 5px;
-            border: 0;
-        }
-
-        .row button:hover {
-            background-color: teal;
-            cursor: pointer;
-        }
-
-        .row button:active {
-            background-color: green;
-            cursor: pointer;
-        }
-
-        .lastrow {
-            font-size: 14px;
-            color: gray;
-        }
-
-        .lastrow a {
-            text-decoration: none;
-            color: #409eff;
-        }
     </style>
     <script type="text/javascript">
         function loginCheck() {
@@ -116,7 +69,7 @@
     </script>
 </head>
 <body>
-    <div class="container">
+    <div class="container text-center">
         <div class="row">
             <h1>登陆</h1>
         </div>
