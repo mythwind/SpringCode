@@ -1,5 +1,6 @@
 package com.vincent.springbootdemo;
 
+import com.vincent.springbootdemo.entity.common.AspectEntity;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
@@ -37,27 +38,28 @@ public class LogAspect {
     @Before("webLog()")
     public void doBefore(JoinPoint joinPoint) {
         logger.info("==============我是前置通知!!!");
+        AspectEntity entity = new AspectEntity();
         //获取目标方法的参数信息
         Object[] obj = joinPoint.getArgs();
         Signature signature = joinPoint.getSignature();
-        //代理的是哪一个方法
-        logger.info("==============方法：" + signature.getName());
-        //AOP代理类的名字
-        logger.info("==============方法所在包:" + signature.getDeclaringTypeName());
+        //OP代理类的名字 + 代理的是哪一个方法
+        entity.setTypeName(signature.getDeclaringTypeName());
+        entity.setMethodName(signature.getName());
         //AOP代理类的类（class）信息
         signature.getDeclaringType();
         MethodSignature methodSignature = (MethodSignature) signature;
         String[] strings = methodSignature.getParameterNames();
-        logger.info("==============参数名：" + Arrays.toString(strings));
-        logger.info("==============参数值ARGS : " + Arrays.toString(joinPoint.getArgs()));
+        entity.setArgsName(Arrays.toString(strings));
+        entity.setArgsValue(Arrays.toString(joinPoint.getArgs()));
         // 接收到请求，记录请求内容
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest req = attributes.getRequest();
         // 记录下请求内容
-        logger.info("==============请求URL : " + req.getRequestURL().toString());
-        logger.info("==============HTTP_METHOD : " + req.getMethod());
-        logger.info("==============IP : " + req.getRemoteAddr());
-        logger.info("==============CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
+        entity.setUrl(req.getRequestURL().toString());
+        entity.setHttpMethod(req.getMethod());
+        entity.setRemoteAddr(req.getRemoteAddr());
+        entity.setClassMethod(joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
+        logger.info("==============" + entity.toString());
 
     }
 
