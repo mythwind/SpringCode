@@ -37,6 +37,9 @@
     <jsp:include page="base/base_header.jsp" flush="true" ></jsp:include>
     <div class="bg-secondary">
         <a href="login/toLogin">Login</a> | <a href="vedio">Vedio</a>
+        <div>
+            <a href="thymeleaf_test">Themeleaf</a>
+        </div>
         Welcome
         <br>
         <br/>
