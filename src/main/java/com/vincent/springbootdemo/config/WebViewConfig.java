@@ -1,4 +1,4 @@
-package com.vincent.springbootdemo;
+package com.vincent.springbootdemo.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

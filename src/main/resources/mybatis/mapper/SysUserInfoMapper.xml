@@ -19,19 +19,27 @@
             #{username},#{nickname},#{password},#{email},#{telephone},#{ip},#{birthday},#{sex},#{delFlag},#{createTime},#{updateTime},#{remark},
         </trim>
     </insert>
+
     <select id="findAllUsers" parameterType="String" resultType="com.vincent.springbootdemo.entity.SysUserInfo">
         SELECT
-        <include refid="BASE_COLUMN"/>
+            <include refid="BASE_COLUMN"/>
         FROM
-        <include refid="BASE_TABLE"/>
+            <include refid="BASE_TABLE"/>
         WHERE delFlag <![CDATA[<>]]> 9
     </select>
+
     <select id="findByUsername" parameterType="String" resultType="com.vincent.springbootdemo.entity.SysUserInfo">
         SELECT
-        <include refid="BASE_COLUMN"/>
+            <include refid="BASE_COLUMN"/>
         FROM
-        <include refid="BASE_TABLE"/>
-        WHERE username = #{username}
+            <include refid="BASE_TABLE"/>
+        WHERE 1 = 1
+        <choose>
+            <when test="username !=null and username != ''">
+                AND username = #{username}
+            </when>
+        </choose>
+
     </select>
     <select id="login" parameterType="String" resultType="com.vincent.springbootdemo.entity.SysUserInfo">
         SELECT

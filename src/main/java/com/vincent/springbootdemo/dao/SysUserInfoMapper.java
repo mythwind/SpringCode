@@ -12,7 +12,7 @@ import java.util.List;
 public interface SysUserInfoMapper {
 
     //@Select("select * from sys_user_info where username = #{username}")
-    public SysUserInfo findByUsername(@Param("username") String username);
+    public List<SysUserInfo> findByUsername(@Param("username") String username);
     public SysUserInfo login(@Param("username") String username, @Param("password") String password);
     public List<SysUserInfo> findAllUsers();
     public int saveSysUserInfo(SysUserInfo userInfo);

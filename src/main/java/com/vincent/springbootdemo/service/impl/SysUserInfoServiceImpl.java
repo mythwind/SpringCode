@@ -1,16 +1,17 @@
 package com.vincent.springbootdemo.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.vincent.springbootdemo.dao.SysUserInfoMapper;
-import com.vincent.springbootdemo.entity.ResultEntity;
+import com.vincent.springbootdemo.entity.common.ResultEntity;
 import com.vincent.springbootdemo.entity.SysUserInfo;
 import com.vincent.springbootdemo.service.SysUserInfoService;
 import com.vincent.springbootdemo.utils.MyConstants;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 @Service
 public class SysUserInfoServiceImpl implements SysUserInfoService {
@@ -18,18 +19,27 @@ public class SysUserInfoServiceImpl implements SysUserInfoService {
     @Autowired
     private SysUserInfoMapper sysUserInfoMapper;
 
+    @Autowired
+    private RedisTemplate redisTemplate;
+
+    @Autowired
+    private StringRedisTemplate stringRedisTemplate;
+
     @Override
-    public SysUserInfo findByUsername(String username) {
-        return sysUserInfoMapper.findByUsername(username);
+    public List<SysUserInfo> findByUsername(String username) {
+        List<SysUserInfo> list = sysUserInfoMapper.findByUsername(username);
+        // 具体使用
+        redisTemplate.opsForList().leftPush("user:user", JSON.toJSONString(list));
+        return list;
     }
 
     @Override
     public ResultEntity login(String username, String password) {
-       SysUserInfo user = sysUserInfoMapper.findByUsername(username);
-        if (null == user) {
+        List<SysUserInfo> list = sysUserInfoMapper.findByUsername(username);
+        if (null == list || list.size() < 1) {
             return new ResultEntity(MyConstants.MSG_LOGIN_USER_NOT_EXISTS, "用户名错误！");
         }
-        user = sysUserInfoMapper.login(username, password);
+        SysUserInfo user = sysUserInfoMapper.login(username, password);
         if (null == user) {
             return new ResultEntity(MyConstants.MSG_LOGIN_PASSWORD_ERROR, "密码错误！");
         }

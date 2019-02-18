@@ -7,6 +7,11 @@ import org.slf4j.LoggerFactory;
 public class BaseController {
     public static final String PREFIX_JSP = "jsp/";
     protected static final String VIEW_INDEX = "jsp/index";
+    protected static final String VIEW_SUCCESS = "jsp/success";
+    protected static final String VIEW_LOGIN = "jsp/login";
+    protected static final String VIEW_VEDIO_PLAY = "jsp/vedio_play";
+
+    protected static final String VIEW_M_INDEX = "jsp/manager/mindex";
 
     protected Logger logger = LoggerFactory.getLogger(getClass());
 

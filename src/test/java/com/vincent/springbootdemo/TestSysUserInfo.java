@@ -15,8 +15,8 @@ public class TestSysUserInfo extends SpringbootdemoApplicationTests {
 
     @Test
     public void testFind() {
-        SysUserInfo s = sysUserInfoMapper.findByUsername("mythwind");
-        Assert.assertEquals("mythwindwang", s.getNickname());
+        List<SysUserInfo> s = sysUserInfoMapper.findByUsername("mythwind");
+        Assert.assertEquals("mythwindwang", s.get(0).getNickname());
     }
     // INSERT INTO sys_user_info(username,nickname,password,email,telephone,ip,birthday,sex)
     // VALUES('mythwind','mythwind','111111','qq.com','1','1','1',1)

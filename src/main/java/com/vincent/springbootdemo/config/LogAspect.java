@@ -1,4 +1,4 @@
-package com.vincent.springbootdemo;
+package com.vincent.springbootdemo.config;
 
 import com.vincent.springbootdemo.entity.common.AspectEntity;
 import org.aspectj.lang.JoinPoint;

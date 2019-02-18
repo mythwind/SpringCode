@@ -1,4 +1,4 @@
-package com.vincent.springbootdemo.entity;
+package com.vincent.springbootdemo.entity.common;
 
 import java.io.Serializable;
 
