@@ -22,16 +22,16 @@
     <!--  在src/main/resource目录下创建文件夹 webjars -->
     <script src="webjars/jquery/3.3.1-2/jquery.min.js"></script>
     <script src="webjars/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script src="webjars/bootstrap-fileinput/4.4.8/js/fileinput.min.js"></script>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="webjars/bootstrap/4.2.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="webjars/bootstrap-fileinput/4.4.8/css/fileinput.min.css"/>
 
-    <link href="webjars/open-iconic/1.1.1/font/css/open-iconic-bootstrap.css" rel="stylesheet">
     <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Our Custom CSS -->
     <%--<link rel="stylesheet" href="css/style4.css">--%>
-
 
 
     <link rel="stylesheet" href="css/slidebar.css">
@@ -109,6 +109,25 @@
                 <h2>Bootstrap 4 Sidebar Menu</h2>
             </div>
             <p class="lead">A responsive, multi-level vertical accordion.</p>
+            <hr>
+
+            <form method="post" action="fileupload" enctype="multipart/form-data">
+                <div class="form-group" style="width:600px">
+                    <label for="upload" class="col-sm-2 control-label">选择文件</label>
+                    <div class="col-sm-10">
+                        <input type="file" id="upload" name="file" />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div>
+                        <button type="submit" class="btn btn-success" id="btn_upload">提交</button>
+                        <input type="reset" class="btn btn-danger" value="重置" />
+
+                    </div>
+                </div>
+            </form>
             <hr>
             <div class="row">
                 <div class="col-lg-6">

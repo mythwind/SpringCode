@@ -93,6 +93,11 @@
 			<artifactId>jquery</artifactId>
 			<version>3.3.1-2</version>
 		</dependency>
+		<dependency>
+			<groupId>org.webjars.bower</groupId>
+			<artifactId>bootstrap-fileinput</artifactId>
+			<version>4.4.8</version>
+		</dependency>
 		<!--
 		<dependency>
 			<groupId>org.webjars.bower</groupId>
