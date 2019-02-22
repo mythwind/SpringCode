@@ -11,9 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 @RequestMapping("/login")
 public class SysUserInfoController extends BaseController {
+    @Autowired
+    private HttpServletRequest request;
+
     @Autowired
     private SysUserInfoService sysUserInfoService;
 
@@ -37,8 +42,10 @@ public class SysUserInfoController extends BaseController {
         ResultEntity resultEntity = sysUserInfoService.login(user.getUsername(), user.getPassword());
 
         logger.info("===2132=======" + resultEntity.getT().toString());
-        if (resultEntity.getCode() == MyConstants.MSG_LOGIN_SUCESSED)
+        if (resultEntity.getCode() == MyConstants.MSG_LOGIN_SUCESSED) {
             model.addAttribute("user", resultEntity.getT());//将user存放到session
+            request.getSession().setAttribute("userinfo", resultEntity.getT());
+        }
         return resultEntity;
     }
     @RequestMapping("/success")
